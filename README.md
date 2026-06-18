@@ -1,4 +1,4 @@
-# pacman.c 
+# PACMAN
 
 A Pacman clone written in C99 with minimal dependencies for Windows, macOS, Linux and WASM.
 
