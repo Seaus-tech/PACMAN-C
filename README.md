@@ -9,8 +9,7 @@ to structure the source code so that it can be read from top to bottom).
 
 Related projects:
 
-- Zig version: https://github.com/floooh/pacman.zig
-
+- Zig version: https://github.com/Seaus-tech/PACMAN-ZIG
 ## Clone, Build and Run (Linux, macOS, Windows)
 
 On the command line:
