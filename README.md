@@ -2,21 +2,21 @@
 
 A Pacman clone written in C99 with minimal dependencies for Windows, macOS, Linux and WASM.
 
-[WASM version](https://floooh.github.io/pacman.c/pacman.html)
+[WASM version](https://seaus-tech.github.io/PACMAN-C/pacman.html)
 
-For implementation details see comments in the pacman.c source file (I've tried
+For implementation details see comments in the PACMAN-C source file (I've tried
 to structure the source code so that it can be read from top to bottom).
 
 Related projects:
 
-- Zig version: https://github.com/floooh/pacman.zig
+- Zig version: https://github.com/seaus-tech/PACMAN-ZIG
 
 ## Clone, Build and Run (Linux, macOS, Windows)
 
 On the command line:
 
 ```
-git clone https://github.com/floooh/pacman.c
+git clone https://github.com/seaus-tech/PACMAN-C
 cd pacman.c
 mkdir build
 cd build
@@ -35,7 +35,7 @@ in the build directory:
 
 with nix:
 ```bash
-nix run github:floooh/pacman.c
+nix run github:seaus-tech/PACMAN-C
 ```
 
 On Windows, the executable is in a subdirectory:
