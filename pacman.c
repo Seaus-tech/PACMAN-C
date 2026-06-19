@@ -1200,8 +1200,8 @@ static void spr_anim_ghost_frightened(ghosttype_t ghost_type, uint32_t tick) {
     uint32_t phase = (tick / 4) & 1;
     sprite_t* spr = spr_ghost(ghost_type);
     spr->tile = tiles[phase];
-    if (tick > (uint32_t)(levelspec(state.game.round).fright_ticks - 60)) {
-        // towards end of frightening period, start blinking
+    if (tick > (uint32_t)(levelspec(state.game.round).fright_ticks - 120)) {
+        // towards end of frightening period, start blinking (last 2 seconds)
         spr->color = (tick & 0x10) ? COLOR_FRIGHTENED : COLOR_FRIGHTENED_BLINKING;
     }
     else {
@@ -2258,6 +2258,14 @@ static void game_tick(void) {
     if (state.game.freeze & FREEZETYPE_EAT_GHOST) {
         if (after_once(state.game.ghost_eaten, GHOST_EATEN_FREEZE_TICKS)) {
             state.game.freeze &= ~FREEZETYPE_EAT_GHOST;
+            // compensate the frightened timer for the frozen ticks so eating a
+            // ghost doesn't silently drain the remaining fright time
+            for (int i = 0; i < NUM_GHOSTS; i++) {
+                ghost_t* g = &state.game.ghost[i];
+                if (g->state == GHOSTSTATE_FRIGHTENED) {
+                    g->frightened.tick += GHOST_EATEN_FREEZE_TICKS;
+                }
+            }
         }
     }
 
