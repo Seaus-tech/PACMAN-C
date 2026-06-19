@@ -17,7 +17,7 @@ On the command line:
 
 ```
 git clone https://github.com/seaus-tech/PACMAN-C
-cd pacman.c
+cd PACMAN-C
 mkdir build
 cd build
 cmake ..
